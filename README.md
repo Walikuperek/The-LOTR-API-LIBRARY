@@ -9,6 +9,8 @@ For more detail, please visit official website:
 ## Just import and get data
 ```
 import * as api from './library';
+
+api.getAllCharacters();
 ```
 
 ## NPM packages
@@ -43,7 +45,7 @@ import * as api from './library';
   *     getAllChapters(true); /* RANDOM THREE if set to true */
   *     getChapterById(CHAPTER_ID);
 
-# Example row from QUOTES
+# Example row from getAllQuotes()
 ```
 ┌───────────┬────────────────────────────┐
 │  (index)  │           Values           │
