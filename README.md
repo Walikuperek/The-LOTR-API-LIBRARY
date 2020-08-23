@@ -6,11 +6,21 @@ For more detail, please visit official website:
 
 > The LOTR API - [documentation](https://the-one-api.herokuapp.com/documentation)
 
-## Just import and get data
+## Just import and get data from library.ts
 ```
 import * as api from './library';
 
 api.getAllCharacters();
+```
+
+## Project setup
+```
+npm install
+```
+
+### Run
+```
+tsc library.ts && tsc index.ts && node index.js
 ```
 
 ## NPM packages
@@ -45,26 +55,83 @@ api.getAllCharacters();
   *     getAllChapters(true); /* RANDOM THREE if set to true */
   *     getChapterById(CHAPTER_ID);
 
-# Example row from getAllQuotes()
+# Example row from getAllCharacters()
 ```
-┌───────────┬────────────────────────────┐
-│  (index)  │           Values           │
-├───────────┼────────────────────────────┤
-│    _id    │ '5cd96e05de30eff6ebccf0e2' │
-│  dialog   │  'Bilbo! Bilbo Baggins!'   │
-│   movie   │ '5cd95395de30eff6ebccde5c' │
-│ character │ '5cdbe49b7ed9587226e794a0' │
-└───────────┴────────────────────────────┘
+┌─────────┬────────────────────────────────────┐
+│ (index) │               Values               │
+├─────────┼────────────────────────────────────┤
+│   _id   │     '5cd99d4bde30eff6ebccfc1f'     │
+│ height  │       `1.76m / 5'9" (film)`        │
+│  race   │              'Human'               │
+│ gender  │               'Male'               │
+│  birth  │             'TA 2925'              │
+│ spouse  │           'Unnamed wife'           │
+│  death  │             'TA 3007'              │
+│  realm  │               'Dale'               │
+│  hair   │           'Brown (film)'           │
+│  name   │               'Bain'               │
+│ wikiUrl │ 'http://lotr.wikia.com//wiki/Bain' │
+└─────────┴────────────────────────────────────┘
 ```
 
-## Project setup
+# Example usage of api.getAllCharacters(true)
 ```
-npm install
-```
+Showing 3 Random CHARACTER records:
 
-### Run
-```
-tsc library.ts && tsc index.ts && node index.js
+Characters total: 933 { random: 674 }
+┌─────────┬───────────────────────────────────────────┐
+│ (index) │                  Values                   │
+├─────────┼───────────────────────────────────────────┤
+│   _id   │        '5cd99d4bde30eff6ebccfdbc'         │
+│ height  │                    ''                     │
+│  race   │                  'Human'                  │
+│ gender  │                  'Male'                   │
+│  birth  │                 'TA 1684'                 │
+│ spouse  │              'Unnamed wife'               │
+│  death  │                 'TA 1856'                 │
+│  realm  │                    ''                     │
+│  hair   │                    ''                     │
+│  name   │               'Narmacil II'               │
+│ wikiUrl │ 'http://lotr.wikia.com//wiki/Narmacil_II' │
+└─────────┴───────────────────────────────────────────┘
+
+Characters total: 933 { random: 215 }
+┌─────────┬──────────────────────────────────────┐
+│ (index) │                Values                │
+├─────────┼──────────────────────────────────────┤
+│   _id   │      '5cd99d4bde30eff6ebccfd76'      │
+│ height  │                  ''                  │
+│  race   │               'Human'                │
+│ gender  │               'Female'               │
+│  birth  │          'Late ,Third Age'           │
+│ spouse  │                  ''                  │
+│  death  │                  ''                  │
+│  realm  │                  ''                  │
+│  hair   │                  ''                  │
+│  name   │               'Ioreth'               │
+│ wikiUrl │ 'http://lotr.wikia.com//wiki/Ioreth' │
+└─────────┴──────────────────────────────────────┘
+
+Characters total: 933 { random: 755 }
+┌─────────┬─────────────────────────────────────┐
+│ (index) │               Values                │
+├─────────┼─────────────────────────────────────┤
+│   _id   │     '5cd99d4bde30eff6ebccfe80'      │
+│ height  │                 ''                  │
+│  race   │               'Dwarf'               │
+│ gender  │                 ''                  │
+│  birth  │                 ''                  │
+│ spouse  │                 ''                  │
+│  death  │                 ''                  │
+│  realm  │                 ''                  │
+│  hair   │                 ''                  │
+│  name   │               'Durin'               │
+│ wikiUrl │ 'http://lotr.wikia.com//wiki/Durin' │
+└─────────┴─────────────────────────────────────┘
+
+{
+  finally: 'showRandomThree === true | Trying to get 3 random characters'
+}
 ```
 
 For more detail, please visit my website:
