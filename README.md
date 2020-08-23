@@ -1,6 +1,10 @@
 # The-LOTR-API-LIBRARY
 Full library for fetching data from Lord of the Rings API
 
+For more detail, please visit official website:
+> The LOTR API - [official website](https://the-one-api.herokuapp.com/)
+> The LOTR API - [documentation](https://the-one-api.herokuapp.com/documentation)
+
 ## Just import and get data
 ```
 import * as api from './library';
