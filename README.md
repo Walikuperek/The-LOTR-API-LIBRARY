@@ -1,6 +1,11 @@
 # The-LOTR-API-LIBRARY
 Full library for fetching data from Lord of the Rings API
 
+## Just import and get data
+```
+import * as api from './library';
+```
+
 ## NPM packages
 * fetching data: axios
 
