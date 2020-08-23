@@ -18,9 +18,40 @@ api.getAllCharacters();
 npm install
 ```
 
-### Run
+## Run
 ```
 tsc library.ts && tsc index.ts && node index.js
+```
+
+#### Example row from api.getAllCharacters()
+```
+┌─────────┬────────────────────────────────────┐
+│ (index) │               Values               │
+├─────────┼────────────────────────────────────┤
+│   _id   │     '5cd99d4bde30eff6ebccfc1f'     │
+│ height  │       `1.76m / 5'9" (film)`        │
+│  race   │              'Human'               │
+│ gender  │               'Male'               │
+│  birth  │             'TA 2925'              │
+│ spouse  │           'Unnamed wife'           │
+│  death  │             'TA 3007'              │
+│  realm  │               'Dale'               │
+│  hair   │           'Brown (film)'           │
+│  name   │               'Bain'               │
+│ wikiUrl │ 'http://lotr.wikia.com//wiki/Bain' │
+└─────────┴────────────────────────────────────┘
+```
+
+#### Error handling example of api.getAllCharacters(true)
+```
+┌─────────┬──────────────────────────────────────────────┐
+│ (index) │                    Values                    │
+├─────────┼──────────────────────────────────────────────┤
+│  error  │ 'Error: Request failed with status code 404' │
+└─────────┴──────────────────────────────────────────────┘
+{
+  finally: 'showRandomThree === true | Trying to get 3 random characters'
+}
 ```
 
 ## NPM packages
@@ -55,26 +86,8 @@ tsc library.ts && tsc index.ts && node index.js
   *     getAllChapters(true); /* RANDOM THREE if set to true */
   *     getChapterById(CHAPTER_ID);
 
-# Example row from getAllCharacters()
-```
-┌─────────┬────────────────────────────────────┐
-│ (index) │               Values               │
-├─────────┼────────────────────────────────────┤
-│   _id   │     '5cd99d4bde30eff6ebccfc1f'     │
-│ height  │       `1.76m / 5'9" (film)`        │
-│  race   │              'Human'               │
-│ gender  │               'Male'               │
-│  birth  │             'TA 2925'              │
-│ spouse  │           'Unnamed wife'           │
-│  death  │             'TA 3007'              │
-│  realm  │               'Dale'               │
-│  hair   │           'Brown (film)'           │
-│  name   │               'Bain'               │
-│ wikiUrl │ 'http://lotr.wikia.com//wiki/Bain' │
-└─────────┴────────────────────────────────────┘
-```
 
-# Example usage of api.getAllCharacters(true)
+#### Example usage of api.getAllCharacters(true)
 ```
 Showing 3 Random CHARACTER records:
 
