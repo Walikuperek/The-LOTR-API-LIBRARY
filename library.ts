@@ -17,6 +17,7 @@ export const getAllBooks = async () => {
             // Handle success
             const books = [...response.data.docs];
             console.table(books);
+            return books;
         })
         .catch(error => {
             // Handle error
@@ -37,6 +38,7 @@ export const getBookById = async (id: string) => {
         .then(response => {
             // Handle success
             console.table(response.data);
+            return response.data;
         })
         .catch(error => {
             // Handle error
@@ -57,6 +59,7 @@ export const getAllChaptersFromBookById = async (id: string) => {
         .then(response => {
             // Handle success
             console.log(response.data.docs);
+            return response.data.docs
         })
         .catch(error => {
             // Handle error
@@ -83,6 +86,7 @@ export const getAllMovies = async () => {
             // Handle success
             const movies = [...response.data.docs];
             console.log(movies);
+            return movies;
         })
         .catch(error => {
             // Handle error
@@ -103,6 +107,7 @@ export const getMovieById = async (id: string) => {
         .then(response => {
             // Handle success
             console.table(response.data);
+            return response.data;
         })
         .catch(error => {
             // Handle error
@@ -139,6 +144,8 @@ export const getAllQuotesFromMovieById = async (id: string, showRandomThree: boo
                     console.log(''); /* for cleaner tables */
                 }
             }
+
+            return quotes;
         })
         .catch(error => {
             // Handle error
@@ -183,6 +190,8 @@ export const getAllCharacters = async (showRandomThree: boolean = false) => {
                     console.log(''); /* for cleaner tables */
                 }
             }
+
+            return characters;
         })
         .catch(error => {
             // Handle error
@@ -205,6 +214,7 @@ export const getCharacterById = async (id: string) => {
         .then(response => {
             // Handle success
             console.table(response.data);
+            return response.data;
         })
         .catch(error => {
             // Handle error
@@ -241,6 +251,8 @@ export const getAllQuotesFromCharacterById = async (id: string, showRandomThree:
                     console.log(''); /* for cleaner tables */
                 }
             }
+
+            return quotes;
         })
         .catch(error => {
             // Handle error
@@ -285,6 +297,8 @@ export const getAllQuotes = async (showRandomThree = false) => {
                     console.log(''); /* for cleaner tables */
                 }
             }
+
+            return quotes;
         })
         .catch((error) => {
             // Handle error
@@ -307,6 +321,7 @@ export const getQuoteById = async (id: string) => {
         .then(response => {
             // Handle success
             console.table(response.data);
+            return response.data;
         })
         .catch(error => {
             // Handle error
@@ -349,6 +364,8 @@ export const getAllChapters = async (showRandomThree = false) => {
                     console.log(''); /* for cleaner tables */
                 }
             }
+
+            return chapters;
         })
         .catch((error) => {
             // Handle error
@@ -371,6 +388,7 @@ export const getChapterById = async (id: string) => {
         .then(response => {
             // Handle success
             console.table(response.data);
+            return response.data;
         })
         .catch(error => {
             // Handle error
