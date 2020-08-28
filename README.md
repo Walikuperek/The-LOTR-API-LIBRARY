@@ -1,10 +1,11 @@
 # The-LOTR-API-LIBRARY
+###### Updated to V2 of the API
 Full library for fetching data from Lord of the Rings API
 
 For more detail, please visit official website:
-> The LOTR API - [official website](https://the-one-api.herokuapp.com/)
+> The LOTR API - [official website](https://the-one-api.dev/)
 
-> The LOTR API - [documentation](https://the-one-api.herokuapp.com/documentation)
+> The LOTR API - [documentation](https://the-one-api.dev/documentation)
 
 ## Just import and get data from library.ts
 ```
@@ -65,6 +66,7 @@ tsc library.ts && tsc index.ts && node index.js
 
 > MOVIES
   *     getAllMovies();
+  *     getAllMovies(true); /* RANDOM THREE if set to true */
   *     getMovieById(MOVIE_ID);
   *     getAllQuotesFromMovieById(MOVIE_ID);
   *     getAllQuotesFromMovieById(MOVIE_ID, true); /* RANDOM THREE if set to true */
@@ -73,8 +75,8 @@ tsc library.ts && tsc index.ts && node index.js
   *     getAllCharacters();
   *     getAllCharacters(true); /* RANDOM THREE if set to true */
   *     getCharacterById(CHARACTER_ID);
-  *     getAllQuotesFromCharacterById(CHARACTER_ID); // NOT working with provided CHARACTER_ID -> 0 QUOTES
-  *     getAllQuotesFromCharacterById(CHARACTER_ID, true); // NOT working with provided CHARACTER_ID -> 0 QUOTES
+  *     getAllQuotesFromCharacterById(CHARACTER_ID);
+  *     getAllQuotesFromCharacterById(CHARACTER_ID, true);
 
 > QUOTES
   *     getAllQuotes();
