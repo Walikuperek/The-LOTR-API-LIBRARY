@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const MY_ACCESS_TOKEN = 'iAcLTR05YVe3Nm3Z66BA';
+const BASE_URL = 'https://the-one-api.dev/v2';
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* BOOKS                                                                                         */
@@ -8,7 +9,7 @@ const MY_ACCESS_TOKEN = 'iAcLTR05YVe3Nm3Z66BA';
 
 export const getAllBooks = async () => {
 
-    await axios.get('https://the-one-api.herokuapp.com/v1/book', {
+    await axios.get(`${BASE_URL}/book`, {
         headers: {
             'Authorization': `Bearer ${MY_ACCESS_TOKEN}`
         }
@@ -17,7 +18,8 @@ export const getAllBooks = async () => {
             // Handle success
             const books = [...response.data.docs];
             console.table(books);
-            return books;
+
+            return books
         })
         .catch(error => {
             // Handle error
@@ -30,15 +32,17 @@ export const getAllBooks = async () => {
 };
 
 export const getBookById = async (id: string) => {
-    await axios.get(`https://the-one-api.herokuapp.com/v1/book/${id}`, {
+    await axios.get(`${BASE_URL}/book/${id}`, {
         headers: {
             'Authorization': `Bearer ${MY_ACCESS_TOKEN}`
         }
     })
         .then(response => {
             // Handle success
-            console.table(response.data);
-            return response.data;
+            const book = [...response.data.docs];
+            console.table(book[0]);
+
+            return book[0];
         })
         .catch(error => {
             // Handle error
@@ -51,15 +55,17 @@ export const getBookById = async (id: string) => {
 };
 
 export const getAllChaptersFromBookById = async (id: string) => {
-    await axios.get(`https://the-one-api.herokuapp.com/v1/book/${id}/chapter`, {
+    await axios.get(`${BASE_URL}/book/${id}/chapter`, {
         headers: {
             'Authorization': `Bearer ${MY_ACCESS_TOKEN}`
         }
     })
         .then(response => {
             // Handle success
-            console.log(response.data.docs);
-            return response.data.docs
+            const chapters = [...response.data.docs];
+            console.log(chapters);
+
+            return chapters;
         })
         .catch(error => {
             // Handle error
@@ -75,9 +81,9 @@ export const getAllChaptersFromBookById = async (id: string) => {
 /* MOVIES                                                                                        */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-export const getAllMovies = async () => {
+export const getAllMovies = async (showRandomThree: boolean = false) => {
 
-    await axios.get('https://the-one-api.herokuapp.com/v1/movie', {
+    await axios.get(`${BASE_URL}/movie`, {
         headers: {
             'Authorization': `Bearer ${MY_ACCESS_TOKEN}`
         }
@@ -85,7 +91,23 @@ export const getAllMovies = async () => {
         .then(response => {
             // Handle success
             const movies = [...response.data.docs];
-            console.log(movies);
+
+            if (showRandomThree === true) {
+                // If function parameter is set to true when function is executed
+                console.log(`\n\nShowing 3 Random MOVIE records\n`);
+                for (let i = 0; i < 3; i++) {
+                    const random: number = Math.floor(Math.random() * movies.length);
+                    console.log(`Movies total: ${movies.length}`, { random });
+                    console.table(movies[random]);
+                    console.log(''); /* for cleaner tables */
+                }
+            } else {
+                for (let i = 0; i < movies.length; i++) {
+                    console.table(movies[i]);
+                    console.log(''); /* for cleaner tables */
+                }
+            }
+
             return movies;
         })
         .catch(error => {
@@ -99,15 +121,17 @@ export const getAllMovies = async () => {
 };
 
 export const getMovieById = async (id: string) => {
-    await axios.get(`https://the-one-api.herokuapp.com/v1/movie/${id}`, {
+    await axios.get(`${BASE_URL}/movie/${id}`, {
         headers: {
             'Authorization': `Bearer ${MY_ACCESS_TOKEN}`
         }
     })
         .then(response => {
             // Handle success
-            console.table(response.data);
-            return response.data;
+            const movie = [...response.data.docs];
+            console.table(movie);
+            
+            return movie;
         })
         .catch(error => {
             // Handle error
@@ -120,7 +144,7 @@ export const getMovieById = async (id: string) => {
 };
 
 export const getAllQuotesFromMovieById = async (id: string, showRandomThree: boolean = false) => {
-    await axios.get(`https://the-one-api.herokuapp.com/v1/movie/${id}/quote`, {
+    await axios.get(`${BASE_URL}/movie/${id}/quote`, {
         headers: {
             'Authorization': `Bearer ${MY_ACCESS_TOKEN}`
         }
@@ -166,7 +190,7 @@ export const getAllQuotesFromMovieById = async (id: string, showRandomThree: boo
 export const getAllCharacters = async (showRandomThree: boolean = false) => {
     // If you want to show 3 random records, set true as a parameter when you invoke this function
 
-    await axios.get('https://the-one-api.herokuapp.com/v1/character', {
+    await axios.get(`${BASE_URL}/character`, {
         headers: {
             'Authorization': `Bearer ${MY_ACCESS_TOKEN}`
         }
@@ -206,15 +230,17 @@ export const getAllCharacters = async (showRandomThree: boolean = false) => {
 };
 
 export const getCharacterById = async (id: string) => {
-    await axios.get(`https://the-one-api.herokuapp.com/v1/character/${id}`, {
+    await axios.get(`${BASE_URL}/character/${id}`, {
         headers: {
             'Authorization': `Bearer ${MY_ACCESS_TOKEN}`
         }
     })
         .then(response => {
             // Handle success
-            console.table(response.data);
-            return response.data;
+            const character = [...response.data.docs];
+            console.table(character[0]);
+
+            return character;
         })
         .catch(error => {
             // Handle error
@@ -227,7 +253,7 @@ export const getCharacterById = async (id: string) => {
 };
 
 export const getAllQuotesFromCharacterById = async (id: string, showRandomThree: boolean = false) => {
-    await axios.get(`https://the-one-api.herokuapp.com/v1/character/${id}/quote`, {
+    await axios.get(`${BASE_URL}/character/${id}/quote`, {
         headers: {
             'Authorization': `Bearer ${MY_ACCESS_TOKEN}`
         }
@@ -273,7 +299,7 @@ export const getAllQuotesFromCharacterById = async (id: string, showRandomThree:
 export const getAllQuotes = async (showRandomThree = false) => {
     // If you want to show 3 random records, set true as a parameter when you invoke this function
 
-    await axios.get('https://the-one-api.herokuapp.com/v1/quote', {
+    await axios.get(`${BASE_URL}/quote`, {
         headers: {
             'Authorization': `Bearer ${MY_ACCESS_TOKEN}`
         }
@@ -313,15 +339,17 @@ export const getAllQuotes = async (showRandomThree = false) => {
 };
 
 export const getQuoteById = async (id: string) => {
-    await axios.get(`https://the-one-api.herokuapp.com/v1/quote/${id}`, {
+    await axios.get(`${BASE_URL}/quote/${id}`, {
         headers: {
             'Authorization': `Bearer ${MY_ACCESS_TOKEN}`
         }
     })
         .then(response => {
             // Handle success
-            console.table(response.data);
-            return response.data;
+            const quote = [...response.data.docs];
+            console.table(quote[0]);
+
+            return quote[0];
         })
         .catch(error => {
             // Handle error
@@ -340,7 +368,7 @@ export const getQuoteById = async (id: string) => {
 export const getAllChapters = async (showRandomThree = false) => {
     // If you want to show 3 random records, set true as a parameter when you invoke this function
 
-    await axios.get('https://the-one-api.herokuapp.com/v1/chapter', {
+    await axios.get(`${BASE_URL}/chapter`, {
         headers: {
             'Authorization': `Bearer ${MY_ACCESS_TOKEN}`
         }
@@ -380,15 +408,17 @@ export const getAllChapters = async (showRandomThree = false) => {
 };
 
 export const getChapterById = async (id: string) => {
-    await axios.get(`https://the-one-api.herokuapp.com/v1/chapter/${id}`, {
+    await axios.get(`${BASE_URL}/chapter/${id}`, {
         headers: {
             'Authorization': `Bearer ${MY_ACCESS_TOKEN}`
         }
     })
         .then(response => {
             // Handle success
-            console.table(response.data);
-            return response.data;
+            const chapter = [...response.data.docs];
+            console.table(chapter[0]);
+
+            return chapter[0];
         })
         .catch(error => {
             // Handle error
