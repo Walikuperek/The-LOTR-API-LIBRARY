@@ -1,5 +1,7 @@
 # The-LOTR-API-LIBRARY
 ###### Updated to V2 of the API
+![The-LOTR-API](/lotr-api-img.png)
+
 Full library for fetching data from Lord of the Rings API
 
 For more detail, please visit official website:
