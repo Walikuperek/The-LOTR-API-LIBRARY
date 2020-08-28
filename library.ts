@@ -129,9 +129,9 @@ export const getMovieById = async (id: string) => {
         .then(response => {
             // Handle success
             const movie = [...response.data.docs];
-            console.table(movie);
+            console.table(movie[0]);
             
-            return movie;
+            return movie[0];
         })
         .catch(error => {
             // Handle error
