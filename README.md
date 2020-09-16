@@ -61,34 +61,6 @@ npm install
 tsc util.ts && tsc library.ts && tsc index.ts && node index.js
 ```
 
-#### Example row from console.table(await api.getAllCharacters())
-```
-┌─────────┬────────────────────────────────────┐
-│ (index) │               Values               │
-├─────────┼────────────────────────────────────┤
-│   _id   │     '5cd99d4bde30eff6ebccfc1f'     │
-│ height  │       `1.76m / 5'9" (film)`        │
-│  race   │              'Human'               │
-│ gender  │               'Male'               │
-│  birth  │             'TA 2925'              │
-│ spouse  │           'Unnamed wife'           │
-│  death  │             'TA 3007'              │
-│  realm  │               'Dale'               │
-│  hair   │           'Brown (film)'           │
-│  name   │               'Bain'               │
-│ wikiUrl │ 'http://lotr.wikia.com//wiki/Bain' │
-└─────────┴────────────────────────────────────┘
-```
-
-#### Error handling example of api.getAllCharacters(true)
-```
-┌─────────┬──────────────────────────────────────────────┐
-│ (index) │                    Values                    │
-├─────────┼──────────────────────────────────────────────┤
-│  error  │ 'Error: Request failed with status code 404' │
-└─────────┴──────────────────────────────────────────────┘
-```
-
 ## NPM packages
 * fetching data: axios
 
@@ -121,6 +93,35 @@ tsc util.ts && tsc library.ts && tsc index.ts && node index.js
   *     getAllChapters();
   *     getAllChapters(true); /* RANDOM THREE if set to true */
   *     getChapterById(CHAPTER_ID);
+
+
+#### Example row from console.table(await api.getAllCharacters())
+```
+┌─────────┬────────────────────────────────────┐
+│ (index) │               Values               │
+├─────────┼────────────────────────────────────┤
+│   _id   │     '5cd99d4bde30eff6ebccfc1f'     │
+│ height  │       `1.76m / 5'9" (film)`        │
+│  race   │              'Human'               │
+│ gender  │               'Male'               │
+│  birth  │             'TA 2925'              │
+│ spouse  │           'Unnamed wife'           │
+│  death  │             'TA 3007'              │
+│  realm  │               'Dale'               │
+│  hair   │           'Brown (film)'           │
+│  name   │               'Bain'               │
+│ wikiUrl │ 'http://lotr.wikia.com//wiki/Bain' │
+└─────────┴────────────────────────────────────┘
+```
+
+#### Error handling example of api.getAllCharacters(true)
+```
+┌─────────┬──────────────────────────────────────────────┐
+│ (index) │                    Values                    │
+├─────────┼──────────────────────────────────────────────┤
+│  error  │ 'Error: Request failed with status code 404' │
+└─────────┴──────────────────────────────────────────────┘
+```
 
 
 For more detail, please visit my website:
