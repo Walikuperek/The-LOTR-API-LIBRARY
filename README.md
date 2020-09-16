@@ -16,7 +16,7 @@ import * as api from './library';
 (async function main() {
   const allBooks = (await api.getAllBooks());
   console.table(allBooks);
- })();
+})();
 ```
 
 ### Response from above
@@ -28,8 +28,6 @@ import * as api from './library';
 │    1    │ '5cf58077b53e011a64671583' │       'The Two Towers'       │
 │    2    │ '5cf58080b53e011a64671584' │   'The Return Of The King'   │
 └─────────┴────────────────────────────┴──────────────────────────────┘
-_____________
-Ellapsed time: 202ms
 ```
 
 ## You can choose allBooks[0] as well
@@ -39,6 +37,7 @@ Ellapsed time: 202ms
   console.table(allBooks[0]);
  })();
 ```
+
 ### And you'll get response below
 ```
 ┌─────────┬──────────────────────────────┐
@@ -47,8 +46,6 @@ Ellapsed time: 202ms
 │   _id   │  '5cf5805fb53e011a64671582'  │
 │  name   │ 'The Fellowship Of The Ring' │
 └─────────┴──────────────────────────────┘
-_____________
-Ellapsed time: 199ms
 ```
 
 ## Project setup
