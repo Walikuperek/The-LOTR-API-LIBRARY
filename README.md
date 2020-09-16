@@ -13,7 +13,42 @@ For more detail, please visit official website:
 ```
 import * as api from './library';
 
-api.getAllCharacters();
+(async function main() {
+  const allBooks = (await api.getAllBooks());
+  console.table(allBooks);
+ })();
+```
+
+### Response from above
+```
+┌─────────┬────────────────────────────┬──────────────────────────────┐
+│ (index) │            _id             │             name             │
+├─────────┼────────────────────────────┼──────────────────────────────┤
+│    0    │ '5cf5805fb53e011a64671582' │ 'The Fellowship Of The Ring' │
+│    1    │ '5cf58077b53e011a64671583' │       'The Two Towers'       │
+│    2    │ '5cf58080b53e011a64671584' │   'The Return Of The King'   │
+└─────────┴────────────────────────────┴──────────────────────────────┘
+_____________
+Ellapsed time: 202ms
+```
+
+## You can choose allBooks[0] as well
+```
+(async function main() {
+  const allBooks = (await api.getAllBooks());
+  console.table(allBooks[0]);
+ })();
+```
+### And you'll get response below
+```
+┌─────────┬──────────────────────────────┐
+│ (index) │            Values            │
+├─────────┼──────────────────────────────┤
+│   _id   │  '5cf5805fb53e011a64671582'  │
+│  name   │ 'The Fellowship Of The Ring' │
+└─────────┴──────────────────────────────┘
+_____________
+Ellapsed time: 199ms
 ```
 
 ## Project setup
